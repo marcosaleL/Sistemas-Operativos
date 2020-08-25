@@ -15,7 +15,6 @@ for i in $( find "$1" -size -$2k -type f ); do
     if [ "$answer" = "y" ]; then
         echo "--------------------------------------"
         rm $i
-        #echo "/home/matias/Desktop/Sistemas Operativos (copy)"$i
     else
         echo 'Desea comprimir el archivo?(y/n)'
         read answer
