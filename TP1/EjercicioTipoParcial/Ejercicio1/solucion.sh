@@ -14,5 +14,19 @@
 tr '\n' ' ' < $1 | tr ',' ' ' | tr '.' ' ' | tr -s ' '  | tr ' ' '\n' | sort | uniq > solucion.txt
 
 while read linea; do
-    echo $linea $'\t' $(grep -c  $linea $1) 
+    echo $linea $'\t' $(grep -c  $linea $1) >> conteo.txt
 done < solucion.txt
+
+#cantidad de palabras usadas en el archivo
+max=$(wc -l < conteo.txt)
+
+while read linea; do
+    palabra=$(echo $linea | tr '\t' ' ' | tr ' ' '-' | cut -d - -f1)
+    #tengo las repeticiones de cada palabra
+    frecuencia=$(echo $linea | tr '\t' ' ' | tr ' ' '-' | cut -d - -f2 )
+    termFrequency=$(echo "scale=4;$frecuencia/$max" | bc)
+    echo Frecuencia de $palabra : $termFrequency
+done < conteo.txt
+
+rm solucion.txt 
+rm conteo.txt
