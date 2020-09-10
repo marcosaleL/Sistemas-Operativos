@@ -1,3 +1,2 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sem nec dui euismod cursus id
-blandit auctor, erat purus pretium massa, sit amet elementum risus lacus at tortor. Nullam ex nisl,
-turpis mattis arcu, sit amet mattis mi diam eu leo. Nam volutpat non mi id aliquam. Maecenas justo
+placerat id laoreet sed, vulputate quis purus. Cras tristique, ligula non eleifend tempor, arcu
+laoreet tellus id leo sodales, ac pellentesque erat ornare.

@@ -3,7 +3,7 @@
 original=$(cat $1 | wc -l)
 while read linea; do
     palabras=$(echo $linea | wc -w)
-    if (( $palabras >= $2 )); then
+    if (( $palabras <= $2 )); then
         echo $linea >> resumen.txt
     fi
 done < $1
