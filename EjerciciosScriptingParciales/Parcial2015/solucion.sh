@@ -11,5 +11,6 @@ while read linea; do
     paises=$(echo $linea | grep $2)
     for aux in $paises; do
         echo $aux
+        
     done
 done < $1
