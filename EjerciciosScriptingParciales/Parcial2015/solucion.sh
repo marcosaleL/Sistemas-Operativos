@@ -7,10 +7,24 @@
 #que dado como parámetro un país retome el nombre y las temperaturas medias de sus ciudades 
 #expresadas en grados Farenheit. Considere que F = 1,8 * C + 32.
 
+pais=$2
+total=0
+filtro=''
+ciudad=''
+temperaturas=''
+promedio=''
+resultado=''
 while read linea; do
-    paises=$(echo $linea | grep $2)
-    for aux in $paises; do
-        echo $aux
-        
-    done
+    filtro=$(echo $linea | cut -d ' ' -f2) 
+    if [[ $filtro == $pais ]]; then
+        ciudad=$(echo $linea | cut -d ' ' -f1)
+        temperaturas=$(echo $linea | cut -d ' ' -f3-15)
+        for aux in $temperaturas; do
+            let total+=$aux
+        done
+        promedio=$(echo "scale=2;$total/12" | bc)
+        resultado=$resultado'\n'$ciudad' '$promedio
+        total=0
+    fi
 done < $1
+echo -e $resultado
