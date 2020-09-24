@@ -11,6 +11,7 @@
 # -TF(p2) = 1/3 = 0.33
 # -TF(p3) = 3/3 = 1
 
+#------------------------------Primera forma----------------------------------------------------------
 tr '\n' ' ' < $1 | tr ',' ' ' | tr '.' ' ' | tr -s ' '  | tr ' ' '\n' | sort | uniq > solucion.txt
 
 while read linea; do
@@ -30,3 +31,36 @@ done < conteo.txt
 
 rm solucion.txt 
 rm conteo.txt
+#-----------------------------Fin de la primera forma----------------------------------------------------
+
+#-----------------------------Segunda forma--------------------------------------------------------------
+old_ifs=$IFS
+IFS=$(echo -e "\n\b")
+
+texto=$(tr '\n' ' ' < $1 | tr ',' ' ' | tr '.' ' ' | xargs | tr ' ' '\n' | tr A-Z a-z | sort)
+cont=0
+pal=''
+aux=''
+cantMax=0
+valor=0
+for word in $texto; do
+    if [ "$pal" = "$word" ]; then
+        let cont+=1
+    else
+        echo $pal' '$cont >> palabrasConRepeticiones.txt
+        if [ $cantMax -le $cont ]; then
+            cantMax=$cont
+        fi
+        cont=1
+        pal=$word
+    fi
+done
+for linea in $(cat palabrasConRepeticiones.txt); do
+    palabra=$(echo $linea | cut -d ' ' -f1) 
+    valor=$(echo $linea | cut -d ' ' -f2)
+    fraccion=$(echo "scale=2;$valor/$cantMax" | bc)
+    echo "TF("$palabra")"" = "$valor"/"$cantMax" = " $fraccion >> resultado.txt
+done
+rm palabrasConRepeticiones.txt
+IFS=$old_ifs
+#--------------------------------------------Segunda forma-----------------------------------------------------
