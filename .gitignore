@@ -5,6 +5,8 @@ EjerciciosScriptingParciales/Parcial2019/400vertices/800edge/minDegree15
 TP1/.~lock.practico2020.docx#
 ordenar-fotos.sh
 Thread/bin/*.class
+Thread/*.class
+Thread/*.log
 *.class
 *.log
 .metadata
