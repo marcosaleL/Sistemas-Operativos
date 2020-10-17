@@ -1,16 +1,22 @@
 package blancanieves;
 
 public class Blancanieves implements Runnable {
-	
-	private Comedor comedor;
-	
-	public Blancanieves(Comedor comedor) {
-        this.comedor = comedor;
-    }
 
-    @Override
-    public void run() {
-       
-    }
-	
+	private Comedor comedor;
+
+	public Blancanieves(Comedor c) {
+		this.comedor = c;
+	}
+
+	public void run() {
+		while (true) {
+			try {
+				this.comedor.pasear();
+				this.comedor.servirComida();
+			} catch (InterruptedException ex) {
+
+			}
+		}
+	}
+
 }

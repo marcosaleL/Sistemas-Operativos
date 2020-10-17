@@ -2,18 +2,32 @@ package blancanieves;
 
 public class Enanito implements Runnable {
 
-	private int id;
 	private Comedor comedor;
-	private boolean esperando;
+	private int id;
 
-	public Enanito(int id, Comedor comedor) {
-		this.id = id;
-		this.comedor = comedor;
+	public Enanito(Comedor comedor, int i) {
+        this.comedor = comedor;
+        id = i;
+    }
+	
+	public int getId() {
+		return this.id;
 	}
 
 	public void run() {
-		
+
+		while (true) {
+			try {
+				this.comedor.sentarse(this);
+				this.comedor.EsperarComida(this);
+				this.comedor.comiendo(this);
+				this.comedor.terminarDeComer(this);
+				this.comedor.trabajando(this);
+			} catch (InterruptedException ex) {
+
+			}
+		}
+
 	}
 
-	
 }
