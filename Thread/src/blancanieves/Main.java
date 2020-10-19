@@ -2,12 +2,15 @@ package blancanieves;
 
 import java.util.ArrayList;
 
+import Recuperatorio2019_Berni.Bartender;
+import Recuperatorio2019_Berni.Cliente;
+
 public class Main {
 
 	public static void main(String[] args) {
 		Comedor comedor = new Comedor();
         Thread blanca = new Thread(new Blancanieves(comedor));
-
+        
         Thread enanos[] = new Thread[7];
 
         for (int i = 0; i < enanos.length; i++) {
