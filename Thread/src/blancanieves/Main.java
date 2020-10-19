@@ -2,8 +2,6 @@ package blancanieves;
 
 import java.util.ArrayList;
 
-import Recuperatorio2019_Berni.Bartender;
-import Recuperatorio2019_Berni.Cliente;
 
 public class Main {
 
