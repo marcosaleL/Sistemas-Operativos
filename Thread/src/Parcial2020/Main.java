@@ -7,7 +7,12 @@ public class Main {
     public static void main(String[] args) {
 
         Museo museo = new Museo();
-        museo.setTecnico(new Tecnico(museo));
+        Tecnico t = new Tecnico(museo);
+        
+        museo.setTecnico(t);
+        
+        Thread tecnico = new Thread(t);
+        tecnico.start();
         
         Thread visitantes[] = new Thread[20];
         
@@ -16,7 +21,7 @@ public class Main {
         	visitantes[i] = new Thread(new Visitante(museo,i));
         }
         
-        Thread autos[] = new Thread[5];
+        Thread autos[] = new Thread[2];
         
         //Creo los hilos de los autos
         for(int i=0; i<autos.length; i++) {
