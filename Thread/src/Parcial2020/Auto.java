@@ -50,7 +50,7 @@ public class Auto implements Runnable {
 			System.out.println("El auto " + this.id + " esta paseando.");
 			simulaPaseo(); //Simula el paseo
 			double probabilidad =  Math.random() * 100; 
-			if (probabilidad < 80) { //en el caso de que se cumpla esta probabilidad el auto se ha roto
+			if (probabilidad < 10) { //en el caso de que se cumpla esta probabilidad el auto se ha roto
 				this.averiado = true;
 				System.out.println("Se rompio el auto " + this.id + ".");
 				this.museo.autoRoto(this);

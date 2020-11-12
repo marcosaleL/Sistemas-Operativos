@@ -21,7 +21,7 @@ public class Main {
         	visitantes[i] = new Thread(new Visitante(museo,i));
         }
         
-        Thread autos[] = new Thread[2];
+        Thread autos[] = new Thread[5];
         
         //Creo los hilos de los autos
         for(int i=0; i<autos.length; i++) {
